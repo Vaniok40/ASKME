@@ -1,11 +1,5 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
-  #
-  # Эта строчка вызывает метод, который обеспечивает защиту от поддельных форм
-  # в каждой форме есть специальный уникальный токен, который rails-приложение
-  # сгенерировало специально для этой формы и который нужно отправить вместе
-  # с запросом, чтобы сервер его принял.
-  #
   # http://guides.rubyonrails.org/security.html#cross-site-request-forgery-csrf
   protect_from_forgery with: :exception
 
@@ -18,6 +12,6 @@ class ApplicationController < ActionController::Base
   end
 
   def reject_user
-    redirect_to root_path, alert: 'Вам сюда нельзя!'
+    redirect_to root_path, alert: 'You are not authorized!'
   end
 end

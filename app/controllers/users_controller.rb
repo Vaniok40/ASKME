@@ -8,12 +8,12 @@ class UsersController < ApplicationController
   end
 
   def new
-    redirect_to root_path, alert: 'Вы уже залогинены' if current_user.present?
+    redirect_to root_path, alert: 'You are already logged in!' if current_user.present?
     @user = User.new
   end
 
   def create
-    redirect_to root_path, alert: 'Вы уже залогинены' if current_user.present?
+    redirect_to root_path, alert: 'You are already logged in!' if current_user.present?
     @user = User.new(user_params)
 
     if @user.save
@@ -37,12 +37,10 @@ class UsersController < ApplicationController
 
   def show
     @questions = @user.questions.order(created_at: :desc)
-    # @questions = @user.questions.sorted_desc
     @questions_count = @questions.count
     @answers_count = @questions.with_answers.count
     @unanswered_count = @questions_count - @answers_count
 
-    # Для формы нового вопроса создаём заготовку, вызывая build у результата вызова метода @user.questions.
     @new_question = @user.questions.build
   end
 

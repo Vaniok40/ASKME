@@ -7,7 +7,7 @@
     <%= link_to 'Edit profile', edit_user_path(@user) if current_user == @user %>
   </div>
   <div class="user-image-div">
-    <%= image_tag user_avatar(@user), class: 'user-image', alt: '[photo]' %>
+    <%= display_avatar(@user) %>
   </div>
 
   <h2 class="title-small buffer-both">
@@ -41,12 +41,12 @@
         <%= f.hidden_field :user_id %>
 
         <div class="form-field">
-          <%= f.label "Ваш вопрос для @#{@user.username}", class: 'form-label' %>
+          <%= f.label "Your question @#{@user.username}", class: 'form-label' %>
           <%= f.text_area :text, class: 'form-textarea' %>
         </div>
 
         <div class="form-action">
-          <%= submit_tag 'Задать вопрос', class: 'button button-small button-dark' %>
+          <%= submit_tag 'Ask', class: 'button button-small button-dark' %>
         </div>
       <% end %>
     </div>
@@ -56,8 +56,7 @@
 <div class="column-3-4">
   <div class="user-questions buffer-both">
     <div class="text-total">
-      Всего задано: <%= @questions.size %>,
-      <%= t(:question, count: @questions.size) %>
+      Asked questions: <%= @questions.size %>
     </div>
     <div class="questions-list">
       <% @questions.each do |question| %>
