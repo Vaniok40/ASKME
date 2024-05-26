@@ -37,14 +37,14 @@
       </div>
 
       <div class="form-action buffer-top">
-        <%= f.submit 'Save', class: 'button button-dark button-small', data: { confirm: 'general.questions.are_you_sure' } %>
+        <%= f.submit 'Save', class: 'button button-dark button-small', data: { confirm: 'Are you sure?' } %>
       </div>
 
       <div class="buffer-top">
         <%= link_to 'Delete profile' + " @#{current_user.username}?", @user,
                     method: :delete,
                     class: 'button button-danger button-small',
-                    data: { confirm: 'general.questions.are_you_sure' } %>
+                    data: { confirm: 'Are you sure?' } %>
       </div>
     <% end %>
   </div>
