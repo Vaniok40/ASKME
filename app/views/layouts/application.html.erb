@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8"/>
-  <title>Хорошие вопросы</title>
+  <title>ASK.me</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
   <%= stylesheet_link_tag 'application', media: 'all' %>
@@ -13,20 +13,16 @@
 <div class="header">
   <div class="container">
     <div class="header-logo">
-      <h1 class="header-title"><%= link_to "Крутые вопросы", root_path %></h1>
+      <h1 class="header-title"><%= link_to "ASK.me", root_path %></h1>
     </div>
-    <%# Выводим в хэдере информацию для логина/авторизации/регистрации %>
     <div class="header-nav">
-      <%# Если есть текущий юзер (значит он залогинен) %>
       <% if current_user %>
-        <%# Даем ссылки на его профиль и на логаут %>
         <%= link_to "@#{current_user.username}", user_path(current_user) %> |
-        <%= link_to 'Выйти', log_out_path %>
+        <%= link_to 'Log out', log_out_path %>
       <% else %>
-        <%# Если нету — ссылки на регистрацию и логин %>
-        <%= link_to 'Зарегистрироваться', sign_up_path,
+        <%= link_to 'Sign up', sign_up_path,
                     class: 'button button-light button-small' %>
-        <%= link_to 'Войти', log_in_path,
+        <%= link_to 'Sign in', log_in_path,
                     class: 'button button-light button-small' %>
       <% end %>
     </div>
